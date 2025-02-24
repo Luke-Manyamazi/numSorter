@@ -27,16 +27,16 @@ body {
     color: var(--gray-05);
 }
 
+/* Responsive Main Container */
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
     border: 0.5em solid var(--gray-90);
     padding: 2em;
+    max-width: 90%;
     width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-
+    margin: auto;
 }
 
 h1 {
@@ -47,6 +47,7 @@ h2 {
     margin-bottom: 15px;
 }
 
+/* Responsive Form */
 form {
     width: 100%;
     text-align: center;
@@ -54,12 +55,15 @@ form {
 }
 
 fieldset {
-    border: 0 none;
+    border: none;
     height: 100%;
     margin: auto;
     display: flex;
+    flex-wrap: wrap;
+    /* Allows wrapping on small screens */
     justify-content: space-around;
     align-items: center;
+    gap: 10px;
 }
 
 fieldset div {
@@ -68,32 +72,27 @@ fieldset div {
     align-items: center;
 }
 
-.bracket,
-.comma {
-    font-size: 2.3em;
-}
-
-form .comma {
-    margin-left: 2px;
-}
-
+/* Button and Select */
+button,
 select {
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
+}
+
+select {
     height: 38px;
-    width: 50px;
+    width: 60px;
     text-align: center;
 }
 
 button {
     cursor: pointer;
     margin-top: 15px;
-    text-decoration: none;
     background-image: linear-gradient(#fecc4c, #ffac33);
     border: 3px solid #feac32;
     padding: 10px 16px;
-    font-size: 23px;
+    font-size: 20px;
     width: 100%;
 }
 
@@ -102,11 +101,11 @@ button:focus-visible {
     outline: 3px solid var(--blue-50);
 }
 
+/* Responsive Output */
 .output-container {
     width: 95%;
     min-height: 55px;
     margin-top: 25px;
-    border-radius: 0;
     padding: 15px;
     overflow-wrap: break-word;
     text-align: center;
@@ -114,10 +113,10 @@ button:focus-visible {
 
 .output-array {
     width: 100%;
-    margin: auto;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .output-value {
@@ -130,18 +129,38 @@ button:focus-visible {
     color: var(--danger-color);
 }
 
-@media (min-width: 550px) {
+/* Media Queries for Better Mobile Experience */
+@media (max-width: 600px) {
+    body {
+        font-size: 16px;
+        margin-top: 5rem;
+    }
 
-    form,
-    .output-container {
-        max-width: 480px;
+    main {
+        padding: 1.5em;
+        width: 95%;
+    }
+
+    form {
+        padding: 10px;
     }
 
     fieldset {
-        max-width: 400px;
+        flex-direction: column;
+        gap: 8px;
     }
 
-    .output-array {
-        max-width: 420px;
+    select {
+        width: 80px;
+    }
+
+    button {
+        font-size: 18px;
+        padding: 12px;
+    }
+
+    .output-container {
+        padding: 10px;
+        font-size: 16px;
     }
 }
